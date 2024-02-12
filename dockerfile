@@ -18,7 +18,6 @@ services:
       - "3015:3000"
     networks:
       - thimnet
-
   worker:
     build:
       context: ./
@@ -36,7 +35,6 @@ services:
       #- storefront
     networks:
       - thimnet
-
   storefront:
    # image: node:14
     build:
@@ -48,14 +46,12 @@ services:
       - SERVER_API_PATH=shop-api
     depends_on:
       - database
-
     expose:
       - "4000"
     ports:
       - "4001:4000"
     networks:
       - thimnet
-
   database:
     image: postgres:16
     volumes:
@@ -69,7 +65,6 @@ services:
       - "5433:5432"
     networks:
       - thimnet
-
   dbreplica:
     image: postgres:16
     volumes:
@@ -83,7 +78,6 @@ services:
       - "5434:5432"
     networks:
       - thimnet   
-
   mariadb:
     image: mariadb:10.6
     volumes:
